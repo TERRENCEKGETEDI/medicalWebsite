@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    text-align: center;
+}
+#todaylist{
+    padding: 10px;
+    display: block;
+    height: fit-content;
+}
+#todaylist div{
+    width: 45%;
+    min-height: 100px;
+    max-height: 400px;
+    min-width: 300px;
+    float: left;
+    margin: 1%;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    padding: 1%;
+    overflow: auto;
+}
+body{
+    background-color: aquamarine;
+}
+@media only screen and (max-width: 710px) {
+    body{
+        background-color: aqua;
+    }
+    #todaylist div{
+        width: 90%;
+        margin: 1%;
+    }
+}
+.navigation{
+    margin-top: 10vh;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0px;
+    display: flex;
+    background-color: black;
+    overflow-x: scroll;
+    justify-content: space-between;
+}
+.navigation button:nth-child(even){
+    padding: 10px 20px;
+    background-color: #8fdbff;
+    border: 5px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    color: darkblue;
+}
+.navigation button:nth-child(odd){
+    padding: 10px 20px;
+    /* background-color: #8fdbff; */
+    color: #ffffff;
+    border: 5px solid black;
+    border-image: linear-gradient(red green);
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    background-image: linear-gradient(to right, black, gold,black);
+}
+.navigation{
+    width: 100%;
+    justify-content: space-evenly;
+}
+.navigation button{
+    margin-left: -10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    box-shadow: 0 0 5px cyan, 0 0 5px cyan;
+}
+.navigation button:hover{
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan,0 0 20px cyan, 0 0 200px cyan;
+}
+
+
+
+@media only screen and (max-width: 350px) {
+    /* Styles for smaller screens */    
+    html{
+        width: 450px;
+    }
+    .navigation{
+        padding: 0px;
+        margin: 0;
+        margin-left: 1%;
+        justify-content: space-evenly;
+    }
+    .navigation button{
+        padding: 8px;
+        box-shadow: 0px 0px 5px gold, 0 0 50px cyan;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 2%;
+    }
+
+  }
+@media only screen and (min-width: 351px)and (max-width: 600px) {
+    /* Styles for smaller screens */
+    .navigation{
+        padding: 0px;
+        justify-content: space-evenly;
+    }
+    .navigation button{
+        padding: 10px;
+        box-shadow: 1px 1px 5px gold, -1px -1px 5px cyan;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 2%;
+    }
+    .navigation button:hover{
+        box-shadow: 0 0 5px gold, 0 0 10px gold,0 0 20px gold, 0 0 30px gold;
+    }
+  }
+@media only screen and (min-width: 601px) {
+    /* Styles for smaller screens */
+    .navigation{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .navigation button{
+        margin-left: -10%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        box-shadow: 0 0 5px cyan, 0 0 5px cyan;
+    }
+    .navigation button:hover{
+        box-shadow: 0 0 5px cyan, 0 0 25px cyan,0 0 20px cyan, 0 0 200px cyan;
+    }
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="booking.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4ZIl7fFtPCIMRvagfhKjtfgRya1CQ3c"></script>
+    <script>
+        let map;
+
+        function initMap(lat, lng) {
+            const location = { lat: lat, lng: lng };
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: location,
+                zoom: 15,
+            });
+            new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        function getLocation() {
+                let mapView = document.getElementById("map");
+                mapView.style.width="90%";
+                mapView.style.height="400px";
+                mapView.style.margin="auto";
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            document.getElementById("location").innerHTML =
+                "Latitude: " + lat + "<br>Longitude: " + lng;
+            initMap(lat, lng);
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById("location").innerHTML = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById("location").innerHTML = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById("location").innerHTML = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById("location").innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="langE()">English</button>
+        <button onclick="langS()">Sepedi</button>
+    </div>
+    <h1 class="a">Hello <b class="name21"></b></h1>
+    <h1 class="b">Dumela <b class="name22"></b></h1>
+
+    <div id="home">
+        <fieldset>
+            <legend class="a" onclick="youfield()">YOU</legend>
+            <legend class="b" onclick="youfield()">WENA</legend>
+            <div id="text">
+                <center>
+                    <fieldset>
+                        <legend class="a">Book for yourself</legend>
+                        <legend class="b">Puku ya gago ka noši</legend>
+                        <select name="" id="docterYou">
+                            <option class="selectADocter" value="">Select a docter</option>
+                            <!-- <option class="b" value="">Kgetha ngaka</option> -->
+                            <option value="General Practitioner">General Practitioner</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                            <option value="Radiologist">Radiologist</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                            <option value="Gynecologist">Gynecologist</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Oncologist">Oncologist</option>
+                            <option value="Psychiatrist">Psychiatrist</option>
+                            <option value="Anesthesiologist">Anesthesiologist</option>
+                            <option value="Pulmonologist">Pulmonologist</option>
+                            <option value="Endocrinologist">Endocrinologist</option>
+                            <option value="Urologist">Urologist</option>
+                            <option value="Other">Other</option>
+                        </select><br>
+                        <select name="" id="hospitalYou">
+                            <option class="selectAHospital" value="">Select a hospital</option>
+                            <!-- <option class="b" value="">Kgetha sepetlele</option> -->
+                            <option value="Witbank">Witbank</option>
+                            <option value="Jane Furse">Jane Furse</option>
+                            <option value="Cecilia Makiwane">Cecilia Makiwane</option>
+                            <option value="Duncan Village Day">Duncan Village Day</option>
+                            <option value="Life St George’s">Life St George’s</option>
+                            <option value="Westways Private">Westways Private</option>
+                            <option value="Matatiele Private">Matatiele Private</option>
+                            <option value="Bedford Orthopedic">Bedford Orthopedic</option>
+                            <option value="St Patrick's">St Patrick's</option>
+                            <option value="Netcare Cuyler">Netcare Cuyler</option>
+                            <option value="Humansdorp">Humansdorp</option>
+                            <option value="Willowmore">Willowmore</option>
+                        </select><br>
+                        <!-- <input type="time" id="timeYou"/> -->
+                        <select name="" id="timeYou">
+                            <option class="selectATime" value="">Select Time</option>
+                            <!-- <option class="b" value="">Kgetha Nako</option> -->
+                            <option value="00:10">00:00</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                        </select><br>
+                        <input type="date" id="dateYou"/>
+                        <textarea name="" id="detailsYou" rows="5" cols="50" placeholder="Specify what you need for the appointment..."></textarea>
+                        <!-- <textarea class="b" name="" id="detailsYou" rows="5" cols="50" placeholder="Laetša seo o se hlokago bakeng sa peeletšo..."></textarea> -->
+                    </fieldset>
+                </center>
+                <div id="sub">
+                    <button class="a" onclick="you()">Submit</button>
+                    <button class="b" onclick="you()">romela</button>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend class="a" onclick="someonefield()">SOMEONE</legend>
+            <legend class="b" onclick="someonefield()">MOTHO YO MONGWE</legend>
+            <div id="some">
+                <center>
+                    <select name="" id="docterSome">
+                        <option class="selectADocter" class="a" value="">Select a docter</option>
+                        <!-- <option class="b" value="">Kgetha ngaka</option> -->
+                        <option value="General Practitioner">General Practitioner</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                        <option value="Radiologist">Radiologist</option>
+                        <option value="Pediatrician">Pediatrician</option>
+                        <option value="Gynecologist">Gynecologist</option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Oncologist">Oncologist</option>
+                        <option value="Psychiatrist">Psychiatrist</option>
+                        <option value="Anesthesiologist">Anesthesiologist</option>
+                        <option value="Pulmonologist">Pulmonologist</option>
+                        <option value="Endocrinologist">Endocrinologist</option>
+                        <option value="Urologist">Urologist</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+                    <select class="selectAHospital" name="" id="hospitalSome">
+                        <option class="a" value="">Select a hospital</option>
+                        <!-- <option class="b" value="">Kgetha sepetlele</option> -->
+                        <option value="Witbank">Witbank</option>
+                        <option value="Jane Furse">Jane Furse</option>
+                        <option value="Cecilia Makiwane">Cecilia Makiwane</option>
+                        <option value="Duncan Village Day">Duncan Village Day</option>
+                        <option value="Life St George’s">Life St George’s</option>
+                        <option value="Westways Private">Westways Private</option>
+                        <option value="Matatiele Private">Matatiele Private</option>
+                        <option value="Bedford Orthopedic">Bedford Orthopedic</option>
+                        <option value="St Patrick's">St Patrick's</option>
+                        <option value="Netcare Cuyler">Netcare Cuyler</option>
+                        <option value="Humansdorp">Humansdorp</option>
+                        <option value="Willowmore">Willowmore</option>
+                    </select><br>
+                <!-- <label for="timeSome">Time</label> -->
+                <!-- <input type="time" id="timeSome"/> -->
+                <select  id="timeSome">
+                    <option class="selectATime" value="">Select Time</option>
+                    <!-- <option class="b" value="">Kgetha Nako</option> -->
+                    <option value="00:10">00:00</option>
+                    <option value="01:00">01:00</option>
+                    <option value="02:00">02:00</option>
+                    <option value="03:00">03:00</option>
+                    <option value="04:00">04:00</option>
+                    <option value="05:00">05:00</option>
+                    <option value="06:00">06:00</option>
+                    <option value="07:00">07:00</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                    <option value="23:00">23:00</option>
+                </select>
+                <!-- <label for="dateSome">Date</label> -->
+                <input type="date" id="dateSome"/>
+                <fieldset id="ttttt">
+                    <legend class="a">fill-in to book for someone</legend>
+                    <legend class="b">tlatša-ka go beakanya bakeng sa motho yo mongwe</legend>
+                    <label class="a" for="firstnameSome">Name</label>
+                    <label class="b" for="firstnameSome">Leina</label>
+                    <input type="text" name="" id="firstnameSome"/><br>
+                    <label class="a" for="surnameSome">Surname</label>
+                    <label class="b" for="surnameSome">Sefane</label>
+                    <input type="text" name="" id="surnameSome"/><br>
+                    <label class="a" for="phoneSome">Phone number</label>
+                    <label class="b" for="phoneSome">Nomoro ya mogala</label>
+                    <input type="tel" name="" id="phoneSome"><br>
+                    <label class="a" for="emailSome">Email Address</label>
+                    <label class="b" for="emailSome">Aterese ya Imeile</label>
+                    <input type="email" name="" id="emailSome"/><br>
+                </fieldset>
+        
+                <fieldset id="text">
+                    <legend class="a">more information for the appointment</legend>
+                    <legend class="b">tshedimošo ye ntši bakeng sa go thwala</legend>
+                    <textarea name="" id="detailsSome" rows="5" cols="50" placeholder="Specify..."></textarea>
+                    <!-- <textarea class="b" name="" id="detailsSome" rows="5" cols="50" placeholder="Efa dintlha ka botlalo..."></textarea> -->
+                </fieldset>
+                </center>
+                <div id="sub">
+                    <button class="a" onclick="someone()">Submit</button>
+                    <button class="b" onclick="someone()">romela</button>
+                </div>
+            </div>
+           
+        </fieldset>
+        <fieldset>
+            <legend class="a" onclick="emergencyfield()">EMERGENCY</legend>
+            <legend class="b" onclick="emergencyfield()">TŠHOGANETŠO</legend>
+            <div id="emergency">
+                <center>
+                    <fieldset id="en">
+                        <legend class="a">more information for the emergency</legend>
+                        <legend class="b">tshedimošo e oketšegilego bakeng sa boemo bja tšhoganetšo</legend>
+                        <label class="a" for="altnumber">Altenative Number</label>
+                        <label class="b" for="altnumber">Nomoro e Nngwe</label>
+                        <input class="a" type="tel" name="altnumber" id="altnumber" placeholder="reliable network phone number..."/>
+                        <input class="b" type="tel" name="altnumber" id="altnumber" placeholder="nomoro ya mogala ya netweke ye e ka botwago..."/>
+                        <textarea name="" id="detailsEm" rows="5" cols="50" placeholder="Specify..."></textarea>
+                        <!-- <textarea class="b" name="" id="detailsEm" rows="5" cols="50" placeholder="Efa dintlha ka botlalo..."></textarea> -->
+                    </fieldset>
+                    <fieldset id="loc">
+                        <legend class="a">location</legend>
+                        <legend class="b">lefelo</legend>
+                        <h2 class="a">Get Device Location</h2>
+                        <h2 class="b">Hwetša Lefelo la Sedirišwa</h2>
+                        <button class="a" onclick="getLocation()">Provide Location</button>
+                        <button class="b" onclick="getLocation()">Fana ka Lefelo</button>
+                            <h3 id="location"></h3>
+                            <div id="map"></div>
+                    </fieldset>
+                </center>
+                <div id="sub">
+                    <button class="a" onclick="emergency()">Submit</button>
+                    <button class="b" onclick="emergency()">romela</button>
+                </div>
+            </div>
+        </fieldset>
+    </div><br><br><br><br><br>
+    <div class="navigation">
+        <button class="a" onclick="home()">HOME</button>
+        <button class="a" onclick="booking()">BOOK</button>
+        <button class="a" onclick="history()">HISTORY</button>
+        <button class="a" onclick="admin()">ADMIN</button>
+        
+        <button class="b" onclick="home()">HOME</button>
+        <button class="b" onclick="booking()">BUKELA</button>
+        <button class="b" onclick="history()">HISTORI</button>
+        <button class="b" onclick="admin()">ADMIN</button>
+    </div>
+    <script src="booking.js"></script>
+</body>
+</html>
